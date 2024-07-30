@@ -29,6 +29,29 @@ app.get("/api/category", (req, res) => {
         }
     });
 })
+
+app.get('/tom', (req, res) => {
+    if (req.query.api == 1) {
+        res.json({
+            name: "Tom",
+            age: "12",
+            phone: "2359235235"
+
+        });
+    } else if (req.query.view == "money") {
+        res.send(req.query.view)
+    } else if (req.query.answer) {
+        if (req.query.answer == 'const') {
+            res.send("UREEEEEEEEEEE")
+        } else {
+            res.send("Wrong answer!")
+        }
+
+    } else {
+        res.send("Which key word create constant in JS? <br> 1.let<br> 2. var <br> 3. const");
+    }
+})
 app.listen(8080, () => {
     console.log('Server started on port 8080');
 });
+
